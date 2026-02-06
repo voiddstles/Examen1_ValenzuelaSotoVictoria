@@ -20,9 +20,12 @@ class PropinaActivity : AppCompatActivity() {
 
         btnCalcularFinal.setOnClickListener {
             val porcentaje = etPorcentaje.text.toString().toDoubleOrNull() ?: 0.0
-            val propina = totalRecibido * (porcentaje / 100)
-            val totalConPropina = (totalRecibido + propina) / personasRecibidas
-            tvResultadoFinal.text = "$" + String.format("%.2f", totalConPropina)
+            val cuotaBase = totalRecibido / personasRecibidas
+            val propinaTotal = totalRecibido * (porcentaje / 100)
+            val propinaPorPersona = propinaTotal / personasRecibidas
+            val totalFinalPorPersona = cuotaBase + propinaPorPersona
+
+            tvResultadoFinal.text = "$" + String.format("%.2f", totalFinalPorPersona)
         }
     }
 }

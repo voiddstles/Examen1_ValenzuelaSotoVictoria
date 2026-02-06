@@ -1,10 +1,10 @@
 package valenzuela.victoria.examen1_valenzuelavictoria
 
-import android.content.Intent // Necesario para el botón de propina
+import android.content.Intent
 import android.os.Bundle
-import android.widget.Button   // IMPORTANTE: Para que reconozca los botones
-import android.widget.EditText // IMPORTANTE: Para que reconozca las entradas de texto
-import android.widget.TextView // Para el texto
+import android.widget.Button
+import android.widget.EditText
+import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 
@@ -34,36 +34,10 @@ class MainActivity : AppCompatActivity() {
 
         btnConPropina.setOnClickListener {
             val intent = Intent(this, PropinaActivity::class.java)
+            // Agregamos ambas maletas de datos para el viaje
             intent.putExtra("TOTAL", ttTotal.text.toString())
+            intent.putExtra("PERSONAS", ttPersonas.text.toString())
             startActivity(intent)
         }
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
